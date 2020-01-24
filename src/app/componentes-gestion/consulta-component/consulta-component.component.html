@@ -1,0 +1,50 @@
+
+<form (submit)="verTareaUnica(e1.id,ipc)" #formu="ngForm">
+    <div class="row col-12 mt-3">
+        <div class="col-6">
+            <label for="nombre">Id a buscar : </label>
+            <input  class="form-control" type="text"  id="idABuscar" name ="idABuscar" [(ngModel)]="e1.id" #tuputamadre="ngModel" required>
+        </div>
+        <div class="col-6">
+            <label for="ipc">IPC : </label>
+            <input  class="form-control" type="text" id="idTarea" name ="ipc" [(ngModel)]="ipc" #tuIpc="ngModel" required>
+        </div>
+    </div>
+    <div class="row col-12 ">
+        <div class="col-6">
+            <!-- validaciones ID -->
+            <div *ngIf="tuputamadre.invalid" >
+                <div *ngIf="tuputamadre.errors.required" class="alert alert-warning mt-2">El id es obligatorio</div>
+            </div>  
+        </div>
+        <div class="col-6">
+            <!-- validaciones ipc -->
+            <div *ngIf="tuIpc.invalid" >
+                <div *ngIf="tuIpc.errors.required" class="alert alert-warning mt-2">El ipc es obligatorio</div>
+            </div>  
+        </div>
+    </div>
+
+    <div class="row col-12 mt-3 mb-3">
+        <div class="col-4"></div>
+        <div class="col-4"><button class="btn btn-outline-success btn-block "  type="submit" [disabled]="!formu.form.valid" (click)="verTareaUnica(idTarea)">Calcular IPC</button> </div>
+        <div class="col-4"></div>
+    </div>
+</form>
+
+<table *ngIf="e1.employee_salary!='' " class="table">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Salario</th>
+        <th>Edad</th>
+        <th>Calculo IPC</th>
+    </tr>
+    <tr>
+        <td>{{e1.id}}</td>
+        <td>{{e1.employee_name}}</td>
+        <td>{{e1.employee_salary}}</td>
+        <td>{{e1.employee_age}}</td>
+        <td>{{valorIPC}}</td>
+    </tr>
+</table>

@@ -1,0 +1,17 @@
+<h2 class="text-center">Listado empleados</h2>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Salario</th>
+        <th>Edad</th>
+        <th>Imagen</th>
+    </tr>
+    <tr *ngFor="let e of multiples_post">
+        <td>{{e.id}}</td>
+        <td>{{e.employee_name}}</td>
+        <td>{{e.employee_salary}}</td>
+        <td>{{e.employee_age}}</td>
+        <td>{{e.profile_image}}</td>
+    </tr>
+</table>
